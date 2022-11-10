@@ -18,8 +18,12 @@ export default{
         }
     },
     computed:{
-      ...mapWritableState(useCustomStore,["errorMessage"])
+      ...mapWritableState(useCustomStore,["errorMessage"]),
+      
 
+    },
+    created(){
+      this.errorMessage= ""
     }
 }
 </script>

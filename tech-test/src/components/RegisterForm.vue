@@ -1,5 +1,5 @@
 <script>
-import { mapActions } from 'pinia'
+import { mapActions, mapState } from 'pinia'
 import { useCustomStore } from '../stores/custom'
 export default{
   data(){
@@ -16,6 +16,12 @@ export default{
         password: this.password
       })
     }
+  },
+  computed:{
+    ...mapState(useCustomStore,["registerErrorMessage"])
+  },
+  created(){
+    this.registerErrorMessage=""
   }
 }
 </script>
@@ -34,10 +40,10 @@ export default{
                 <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
 
                 <form class="mx-1 mx-md-4" @submit.prevent="handleRegister()">
-
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
+                  <p v-if="registerErrorMessage" style="color: red;">{{registerErrorMessage}}</p>
                       <input v-model="username" type="text" id="form3Example1c" class="form-control" />
                       <label class="form-label" for="form3Example1c">Username</label>
                     </div>

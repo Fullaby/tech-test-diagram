@@ -2,7 +2,7 @@
   import {mapActions, mapWritableState, mapState} from "pinia"
   import { Bar } from 'vue-chartjs'
   import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js'
-import { useCustomStore } from '../stores/custom'
+  import { useCustomStore } from '../stores/custom'
   
   ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
   
